@@ -1,0 +1,32 @@
+<app-header title="Login"></app-header> <!--Le pasamos el title que va a mostrar cuando estemos en esta pagina-->
+
+<ion-content>
+
+  <div class="d-flex-center">
+
+    <form [formGroup]="formLogin" class="auth-form">
+      <!--Agregamos el componente logo-->
+      <app-logo></app-logo>
+
+      <!--Llamamos todos los input necesarios-->
+      <app-custom-input icon="person-outline" type="number" label="DNI"
+        [control]="formLogin.controls.dni"></app-custom-input>
+
+      <div class="validators" *ngIf="formLogin.controls.dni.errors && formLogin.controls.dni.touched">
+        <div *ngIf="formLogin.controls.dni.errors?.['required']">Dni es requerido.</div>
+      </div>
+
+      <app-custom-input icon="lock-closed-outline" type="password" label="CLAVE"
+        [control]="formLogin.controls.password"></app-custom-input>
+      <div class="validators" *ngIf="formLogin.controls.password.errors && formLogin.controls.password.touched">
+        <div *ngIf="formLogin.controls.password.errors?.['required']">Clave es requerido.</div>
+      </div>
+
+      <ion-button expand="block" shape="round" class="submit" type="submit" [disabled]="formLogin.invalid">
+        Ingresar
+      </ion-button>
+
+    </form>
+  </div>
+
+</ion-content>
