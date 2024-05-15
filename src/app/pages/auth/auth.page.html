@@ -21,6 +21,7 @@
       <div class="validators" *ngIf="formLogin.controls.password.errors && formLogin.controls.password.touched">
         <div *ngIf="formLogin.controls.password.errors?.['required']">Clave es requerido.</div>
       </div>
+      <p routerLink="forgot-password">¿Olvidaste tu clave?</p>
 
       <ion-button expand="block" shape="round" class="submit" type="submit" [disabled]="formLogin.invalid">
         Ingresar
